@@ -15,18 +15,14 @@ Apache Avro steps in as a hero to tackle these challenges head-on. It's a data s
 
 ### Schema Evolution and Compatibility
 
-Avro's schema evolution capabilities allow for the forward and backward compatibility of data. This means that as the data schema evolves (for example, adding a new field like "watched with subtitles" to user viewing history), applications reading older data can still function correctly, and vice versa.
+Imagine a movie streaming service that logs various types of events: recommendation requests from users, movie watch activities, and user ratings for movies. To handle this data efficiently across different systems and languages, the service uses Apache Avro for data serialization. Avro requires schemas, defined in JSON, which describe the data structures for these events.
 
-Given the scenario you've outlined, let's revise the Python example to reflect the data handling process for a movie streaming service that uses Apache Kafka for event streaming. The service logs server events including recommendation requests, movie watch events, and movie ratings. We'll design Avro schemas to serialize and deserialize these log entries effectively.
+Initial Data Schemas
+Initially, the streaming service defines the following Avro schemas for its events:
 
-### Apache Avro Schema Design for Movie Streaming Logs
-
-We'll create Avro schemas for three types of events: recommendation requests, movie watch events, and movie ratings. Each event type has a unique schema reflecting its data structure. This ensures that each event can be efficiently processed and analyzed, catering to the needs of a dynamic movie streaming platform.
-
-```python
+python
+Copy code
 from avro.schema import parse
-from avro.datafile import DataFileWriter
-from avro.io import DatumWriter
 
 # Schema for Recommendation Request Events
 recommendation_request_schema_json = '''
@@ -76,11 +72,44 @@ movie_rating_event_schema_json = '''
 recommendation_request_schema = parse(recommendation_request_schema_json)
 movie_watch_event_schema = parse(movie_watch_event_schema_json)
 movie_rating_event_schema = parse(movie_rating_event_schema_json)
+These schemas lay the groundwork for consistent data handling across the streaming service's ecosystem.
 
-print("Schemas successfully parsed. Ready to serialize and deserialize movie streaming events!")
-```
+Navigating Change: Schema Evolution
+As the streaming service evolves, it decides to collect additional information for each event type. This necessitates changes to the existing schemas—a process that could potentially disrupt the service's operations. However, with Avro's schema evolution capabilities, these changes can be made seamlessly.
 
-This example demonstrates how to define and parse Avro schemas for different types of events in a movie streaming service scenario. The schemas are designed to capture the essence of server logs, including recommendation requests, movie watch activities, and user ratings. By using Avro for data serialization, the service ensures data integrity and compatibility across different components of its infrastructure, facilitating efficient data processing and analytics.
+Evolving the Schemas
+The service updates its schemas to include new fields: deviceType for recommendation requests, watchedInFull for movie watch events, and ratingContext for movie ratings.
+
+python
+Copy code
+# Evolved Schema for Recommendation Request Events
+recommendation_request_schema_evolved_json = '''
+{
+  "type": "record",
+  "name": "RecommendationRequest",
+  "fields": [
+    {"name": "time", "type": "string"},
+    {"name": "userId", "type": "string"},
+    {"name": "server", "type": "string"},
+    {"name": "status", "type": "int"},
+    {"name": "recommendations", "type": ["null", "string"], "default": null},
+    {"name": "responseTime", "type": "int"},
+    {"name": "deviceType", "type": ["null", "string"], "default": null}  # New field
+  ]
+}
+'''
+
+# Parse evolved schemas
+recommendation_request_schema_evolved = parse(recommendation_request_schema_evolved_json)
+The new fields are added with default values, ensuring that new data can still be processed by systems using the old schemas, and old data can be understood by systems using the new schemas. This backward and forward compatibility is a cornerstone of Avro's design.
+
+The Impact of Schema Evolution
+Schema evolution with Apache Avro allows the streaming service to adapt to changing requirements without the risk of data incompatibility. It ensures that data remains accessible and usable across different versions of the application, facilitating a smooth evolution of data infrastructure.
+
+Backward Compatibility: New systems can read data produced by old systems.
+Forward Compatibility: Old systems can ignore new fields added by newer systems.
+Conclusion
+Apache Avro's schema evolution capabilities are essential for maintaining data compatibility and flexibility in evolving data-driven applications. By allowing schemas to evolve without breaking existing systems, Avro helps organizations like our hypothetical movie streaming service to innovate and adapt while ensuring data integrity and accessibility. As data schemas evolve to capture more nuanced information, Avro ensures that these changes enrich the application's ecosystem rather than disrupt it.
 
 ## Strengths and Limitations
 
