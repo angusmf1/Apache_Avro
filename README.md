@@ -1,6 +1,7 @@
 # Ensuring Data Quality in Machine Learning with Apache Avro
   
-#### by Angus Ferrell                            MISM Student at Carnegie Mellon University                        Mar 19, 2024
+#### by Angus Ferrell, Graduate Student at Carnegie Mellon University                        
+#### Mar 19, 2024
 
 In the rapidly evolving world of machine learning (ML), the quality of data not only determines the accuracy of predictions but also the reliability and scalability of ML systems. As more organizations pivot towards data-driven decision-making, ensuring high-quality data becomes paramount. This is where Apache Avro, a data serialization system, comes into play. Let's delve into how Avro addresses data quality issues, particularly within the context of a movie streaming platform, and discuss its strengths and limitations for a general audience interested in machine learning.
 
