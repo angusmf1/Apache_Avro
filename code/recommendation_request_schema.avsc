@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "RecommendationRequest",
+  "fields": [
+    {"name": "time", "type": "string"},
+    {"name": "userid", "type": "int"},
+    {"name": "server", "type": "string"},
+    {"name": "status", "type": "int"},
+    {"name": "recommendations", "type": {"type": "array", "items": "string"}},
+    {"name": "responsetime", "type": "string"}
+  ]
+}

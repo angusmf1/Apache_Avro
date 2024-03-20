@@ -1,0 +1,10 @@
+{
+  "type": "record",
+  "name": "MovieWatch",
+  "fields": [
+    {"name": "time", "type": "string"},
+    {"name": "userid", "type": "int"},
+    {"name": "movieid", "type": "string"},
+    {"name": "minute", "type": "string"}
+  ]
+}
