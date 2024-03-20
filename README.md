@@ -158,16 +158,19 @@ def decode_avro(binary_data, schema):
 
 ### Practical Application
 
+***input movie log:***
+```python
+Movie log input: "2024-03-08T23:06:09,422004,GET /data/m/dear+zachary+a+letter+to+a+son+about+his+father+2008/84.mpg"
+```
+
 To process the serialized data:
 
 1. **Reading Serialized Data**: Data is read from Avro files, such as `data/recommendation_requests.avro`.
 2. **Data Deserialization**: The binary data is deserialized into its original structure for analysis or further processing.
 
 ```python
-Movie log input: "2024-03-08T23:06:09,422004,GET /data/m/dear+zachary+a+letter+to+a+son+about+his+father+2008/84.mpg"
-
-
 # Example: Reading and processing data from 'data/recommendation_requests.avro'
+
 recommendation_data = read_from_avro('data/recommendation_requests.avro', recommendation_request_schema)
 ```
 
