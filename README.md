@@ -158,15 +158,26 @@ def decode_avro(binary_data, schema):
 
 ### Practical Application
 
-***input movie log:***
+To demonstrate the practical application of Apache Avro in a streaming context, let's take a look at a common scenario in a movie streaming service where movie logs are processed for further analysis.
+
+**Input Movie Log:**
+Here's an example of a movie log input that a streaming service might receive, indicating a user has started watching a movie:
+
 ```python
-Movie log input: "2024-03-08T23:06:09,422004,GET /data/m/dear+zachary+a+letter+to+a+son+about+his+father+2008/84.mpg"
+movie_log_input = "2024-03-08T23:06:09,422004,GET /data/m/dear+zachary+a+letter+to+a+son+about+his+father+2008/84.mpg"
 ```
 
-To process the serialized data:
+1. **Extracting Data**: The original log entry is extracted from the source, which in most cases is a server log file or Kafka Stream.
 
-1. **Reading Serialized Data**: Data is read from Avro files, such as `data/recommendation_requests.avro`.
-2. **Data Deserialization**: The binary data is deserialized into its original structure for analysis or further processing.
+2. **Parsing the Log Entry**: The log entry is parsed to identify its components – the timestamp, user ID, movie ID, and the specific segment of the movie requested.
+
+3. **Serializing the Data**: The parsed data is then serialized using the Avro schema defined for movie watch events. This schema ensures that each piece of information is correctly formatted and typed.
+
+4. **Storing Serialized Data**: The serialized data is stored in an Avro file, which can then be efficiently transmitted or accessed due to its compact binary format.
+
+5. **Deserializing for Use**: When the data needs to be analyzed or processed, it is read from the Avro file and deserialized back into its original structure, as illustrated by the output image.
+
+6. **Analysis and Processing**: The deserialized data is now ready for various applications, such as feeding into an ML model for predicting user preferences, generating insights for content curation, or enhancing user experience.
 
 ```python
 # Example: Reading and processing data from 'data/recommendation_requests.avro'
@@ -176,6 +187,8 @@ recommendation_data = read_from_avro('data/recommendation_requests.avro', recomm
 
 ***output:***
 ![Movie log output](movie_output.png)
+
+By following these steps, movie streaming services can handle vast amounts of data effectively, ensuring that data is not only stored and transmitted efficiently but also remains accessible and analyzable as the service scales and evolves.
 
 Apache Avro is a serialization framework that offers efficient data handling capabilities, especially for streaming and machine learning applications. It presents a balanced approach to data management, blending compact storage and efficient processing with robust support for schema evolution and cross-language interoperability. This makes Avro particularly suited for applications requiring not just compact data representation but also a high degree of data compatibility and flexibility.
 
@@ -195,3 +208,7 @@ Apache Avro is a serialization framework that offers efficient data handling cap
 ### Final Thoughts
 
 Apache Avro's strength lies in its schema evolution capabilities and its efficiency in handling large volumes of data. These features are essential for maintaining data quality and compatibility in dynamic, data-intensive environments. Avro is particularly valuable for applications like movie streaming services that continuously adapt and evolve, requiring flexible and reliable data management solutions. Despite the challenges related to schema management and the initial learning curve, the strategic advantages of using Avro—especially in terms of data compatibility and efficiency—make it a compelling choice for many applications. As machine learning and data-driven technologies continue to advance, tools like Avro will play a crucial role in ensuring that data remains a reliable and effective foundation for innovation and growth.
+
+
+
+
