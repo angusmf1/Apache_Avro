@@ -169,7 +169,7 @@ Here's an example of a movie log input that a streaming service might receive, i
 movie_log_input = "2024-03-08T23:06:09,422004,GET /data/m/dear+zachary+a+letter+to+a+son+about+his+father+2008/84.mpg"
 ```
 
-***See [avro_serializer.py](/code/avro_serializer.py) for these steps***
+***See [avro_serializer.py](https://github.com/angusmf1/Apache_Avro/blob/main/code/avro_serializer.py) for these steps***
 1. **Extracting Data**: The original log entry is extracted from the source, which in most cases is a server log file or Kafka Stream.
 
 2. **Parsing the Log Entry**: The log entry is parsed to identify its components – the timestamp, user ID, movie ID, and the specific segment of the movie requested.
@@ -178,7 +178,7 @@ movie_log_input = "2024-03-08T23:06:09,422004,GET /data/m/dear+zachary+a+letter+
 
 4. **Storing Serialized Data**: The serialized data is stored in an Avro file ([movie_watches.avro](/data/movie_watches.avro)), which can then be efficiently transmitted or accessed due to its compact binary format.
 
-***See [avro_deserializer.py](/code/avro_deserializer.py) for these steps***
+***See [avro_deserializer.py](https://github.com/angusmf1/Apache_Avro/blob/main/code/avro_deserializer.py) for these steps***
 
 5. **Deserializing for Use**: When the data needs to be analyzed or processed, it is read from the Avro file and deserialized back into its original structure, as illustrated by the output image. 
 
