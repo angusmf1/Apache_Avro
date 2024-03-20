@@ -168,6 +168,8 @@ To process the serialized data:
 recommendation_data = read_from_avro('data/recommendation_requests.avro', recommendation_request_schema)
 ```
 
+![Movie log output](movie_output.png)
+
 Apache Avro is a serialization framework that offers efficient data handling capabilities, especially for streaming and machine learning applications. It presents a balanced approach to data management, blending compact storage and efficient processing with robust support for schema evolution and cross-language interoperability. This makes Avro particularly suited for applications requiring not just compact data representation but also a high degree of data compatibility and flexibility.
 
 ### Advantages of Avro
