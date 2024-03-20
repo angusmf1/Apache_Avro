@@ -164,10 +164,14 @@ To process the serialized data:
 2. **Data Deserialization**: The binary data is deserialized into its original structure for analysis or further processing.
 
 ```python
+Movie log input: "2024-03-08T23:06:09,422004,GET /data/m/dear+zachary+a+letter+to+a+son+about+his+father+2008/84.mpg"
+
+
 # Example: Reading and processing data from 'data/recommendation_requests.avro'
 recommendation_data = read_from_avro('data/recommendation_requests.avro', recommendation_request_schema)
 ```
 
+***output:***
 ![Movie log output](movie_output.png)
 
 Apache Avro is a serialization framework that offers efficient data handling capabilities, especially for streaming and machine learning applications. It presents a balanced approach to data management, blending compact storage and efficient processing with robust support for schema evolution and cross-language interoperability. This makes Avro particularly suited for applications requiring not just compact data representation but also a high degree of data compatibility and flexibility.
