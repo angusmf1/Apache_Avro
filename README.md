@@ -5,23 +5,23 @@
 
 In the rapidly evolving world of machine learning (ML), the quality of data not only determines the accuracy of predictions but also the reliability and scalability of ML systems. As more organizations pivot towards data-driven decision-making, ensuring high-quality data becomes paramount. This is where Apache Avro, a data serialization system, comes into play. Let's delve into how Avro addresses data quality issues, particularly within the context of a movie streaming platform, and discuss its strengths and limitations for a general audience interested in machine learning.
 
-## The Problem at Hand
+### The Problem at Hand
 
 Data quality issues can manifest in numerous ways: inconsistent data formats, missing values, or even the sheer incompatibility of data schema over time as systems evolve. In the realm of a movie streaming service, imagine the complexities involved in handling data from millions of users across the globe. The data encompasses not just user profiles but also their interactions, preferences, and viewing habits. Ensuring this vast ocean of data remains consistent, accessible, and scalable is a Herculean task, vital for personalized recommendations, billing, and content distribution.
 
-## How Apache Avro Helps
+### How Apache Avro Helps
 
 Apache Avro steps in as a hero to tackle these challenges head-on. It's a data serialization framework that enables data schema and files to be processed by programs written in different languages. This is crucial for a movie streaming service that likely leverages various technologies across its data pipelines.
 
-# Embracing Change: Schema Evolution in Data-Driven Applications with Apache Avro
+## Embracing Change: Schema Evolution in Data-Driven Applications with Apache Avro
 
 In the dynamic world of data-driven applications, the structure of data can change as new features are added and existing features are refined. This evolution can create significant challenges in data management, particularly in terms of maintaining compatibility across different versions of data schemas. Apache Avro, a data serialization framework, offers a compelling solution to this problem through its support for schema evolution. Let's explore how Avro enables seamless schema changes, using a movie streaming service as our context.
 
-## The Foundation: Data Schema with Apache Avro
+### The Foundation: Data Schema with Apache Avro
 
 Imagine a movie streaming service that logs various types of events: recommendation requests from users, movie watch activities, and user ratings for movies. To handle this data efficiently across different systems and languages, the service uses Apache Avro for data serialization. Avro requires schemas, defined in JSON, which describe the data structures for these events.
 
-### Initial Data Schemas
+#### Initial Data Schemas
 
 Initially, the streaming service defines the following Avro schemas for its events:
 
@@ -80,11 +80,11 @@ movie_rating_event_schema = parse(movie_rating_event_schema_json)
 
 These schemas lay the groundwork for consistent data handling across the streaming service's ecosystem.
 
-## Navigating Change: Schema Evolution
+### Navigating Change: Schema Evolution
 
 As the streaming service evolves, it decides to collect additional information for each event type. This necessitates changes to the existing schemas—a process that could potentially disrupt the service's operations. However, with Avro's schema evolution capabilities, these changes can be made seamlessly.
 
-### Evolving the Schemas
+#### Evolving the Schemas
 
 The service updates its schemas to include new fields: `deviceType` for recommendation requests, `watchedInFull` for movie watch events, and `ratingContext` for movie ratings.
 
@@ -112,7 +112,7 @@ recommendation_request_schema_evolved = parse(recommendation_request_schema_evol
 
 The new fields are added with default values, ensuring that new data can still be processed by systems using the old schemas, and old data can be understood by systems using the new schemas. This backward and forward compatibility is a cornerstone of Avro's design.
 
-## The Impact of Schema Evolution
+### The Impact of Schema Evolution
 
 Schema evolution with Apache Avro allows the streaming service to adapt to changing requirements without the risk of data incompatibility. It ensures that data remains accessible and usable across different versions of the application, facilitating a smooth evolution of data infrastructure.
 
