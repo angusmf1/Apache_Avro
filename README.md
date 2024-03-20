@@ -200,14 +200,14 @@ By following these steps, movie streaming services can handle vast amounts of da
 
 Apache Avro is a serialization framework that offers efficient data handling capabilities, especially for streaming and machine learning applications. It presents a balanced approach to data management, blending compact storage and efficient processing with robust support for schema evolution and cross-language interoperability. This makes Avro particularly suited for applications requiring not just compact data representation but also a high degree of data compatibility and flexibility.
 
-### Advantages of Avro
+### Strengths of Avro
 
 - **Efficiency and Compactness**: Avro's binary data format significantly reduces storage space and bandwidth usage compared to text-based formats like JSON.
 - **Schema Evolution**: Supports adding new fields to data structures without impacting existing data, ensuring both backward and forward compatibility. This is particularly beneficial for evolving data-driven applications, such as movie streaming services, where data schemas might need to adapt over time.
 - **Cross-Language Support**: Facilitates data exchange between systems written in different programming languages, enhancing interoperability within diverse tech ecosystems.
 - **Strong Typing**: By enforcing data types through schemas, Avro improves data quality and simplifies error handling, making it easier to maintain data integrity across complex systems.
 
-### Challenges of Avro
+### Limitations of Avro
 
 - **Schema Management**: Ensuring that Avro schemas are consistently accessible and understood across all data consumers can introduce complexity, particularly in larger systems.
 - **Learning Curve**: New users may find Avro's serialization mechanisms and schema evolution concepts initially challenging, requiring a period of learning and adjustment.
