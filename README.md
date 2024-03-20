@@ -78,7 +78,7 @@ movie_rating_event_schema = parse(movie_rating_event_schema_json)
 
 These schemas lay the groundwork for consistent data handling across the streaming service's ecosystem.
 
-See: [movie_watch_schema.avsc](https://github.com/angusmf1/Apache_Avro/blob/main/code/movie_watch_schema.avsc),[movie_rating_schema.avsc](https://github.com/angusmf1/Apache_Avro/blob/main/code/movie_rating_schema.avsc),[recommendation_request_schema.avsc](https://github.com/angusmf1/Apache_Avro/blob/main/code/recommendation_request_schema.avsc)
+See:  [movie_watch_schema.avsc](https://github.com/angusmf1/Apache_Avro/blob/main/code/movie_watch_schema.avsc) , [movie_rating_schema.avsc](https://github.com/angusmf1/Apache_Avro/blob/main/code/movie_rating_schema.avsc) , [recommendation_request_schema.avsc](https://github.com/angusmf1/Apache_Avro/blob/main/code/recommendation_request_schema.avsc)
 
 
 ### Navigating Change: Schema Evolution
