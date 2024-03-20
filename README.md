@@ -167,15 +167,18 @@ Here's an example of a movie log input that a streaming service might receive, i
 movie_log_input = "2024-03-08T23:06:09,422004,GET /data/m/dear+zachary+a+letter+to+a+son+about+his+father+2008/84.mpg"
 ```
 
+***See [avro_serializer.py](code/avro_serializer.py) for these steps***
 1. **Extracting Data**: The original log entry is extracted from the source, which in most cases is a server log file or Kafka Stream.
 
 2. **Parsing the Log Entry**: The log entry is parsed to identify its components – the timestamp, user ID, movie ID, and the specific segment of the movie requested.
 
 3. **Serializing the Data**: The parsed data is then serialized using the Avro schema defined for movie watch events. This schema ensures that each piece of information is correctly formatted and typed.
 
-4. **Storing Serialized Data**: The serialized data is stored in an Avro file [movie_watches.avro](data/movie_watches.avro), which can then be efficiently transmitted or accessed due to its compact binary format.
+4. **Storing Serialized Data**: The serialized data is stored in an Avro file ([movie_watches.avro](data/movie_watches.avro)), which can then be efficiently transmitted or accessed due to its compact binary format.
 
-5. **Deserializing for Use**: When the data needs to be analyzed or processed, it is read from the Avro file and deserialized back into its original structure, as illustrated by the output image.
+***See [avro_deserializer.py](code/avro_deserializer.py) for these steps***
+
+5. **Deserializing for Use**: When the data needs to be analyzed or processed, it is read from the Avro file and deserialized back into its original structure, as illustrated by the output image. 
 
 6. **Analysis and Processing**: The deserialized data is now ready for various applications, such as feeding into an ML model for predicting user preferences, generating insights for content curation, or enhancing user experience.
 
