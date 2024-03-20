@@ -160,6 +160,8 @@ def decode_avro(binary_data, schema):
 
 To demonstrate the practical application of Apache Avro in a streaming context, let's take a look at a common scenario in a movie streaming service where movie logs are processed for further analysis.
 
+***See repository: [GitHub Repository](https://github.com/angusmf1/Apache_Avro)***
+
 **Input Movie Log:**
 Here's an example of a movie log input that a streaming service might receive, indicating a user has started watching a movie:
 
