@@ -1,4 +1,4 @@
-# Ensuring Data Quality in Machine Learning with Apache Avro
+# Streamlining Data Handling in Machine Learning Application with Apache Avro
   
 #### by Angus Ferrell, Graduate Student at Carnegie Mellon University                        
 #### Mar 19, 2024
