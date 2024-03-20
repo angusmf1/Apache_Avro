@@ -82,6 +82,8 @@ These schemas lay the groundwork for consistent data handling across the streami
 
 As the streaming service evolves, it decides to collect additional information for each event type. This necessitates changes to the existing schemas—a process that could potentially disrupt the service's operations. However, with Avro's schema evolution capabilities, these changes can be made seamlessly.
 
+See: [movie_watch_schema.avsc](https://github.com/angusmf1/Apache_Avro/blob/main/code/movie_watch_schema.avsc),[movie_rating_schema.avsc](https://github.com/angusmf1/Apache_Avro/blob/main/code/movie_rating_schema.avsc),[recommendation_request_schema.avsc](https://github.com/angusmf1/Apache_Avro/blob/main/code/recommendation_request_schema.avsc)
+
 #### Evolving the Schemas
 
 The service updates its schemas to include new fields: `deviceType` for recommendation requests, `watchedInFull` for movie watch events, and `ratingContext` for movie ratings.
